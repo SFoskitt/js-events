@@ -228,10 +228,6 @@ define('event', ['./invite', './ouibounce', './params', './touch-scroll', './uti
         }
 
       } else { // nothing to do here now? maybe a default "renderConfetti?"
-        //Event.handleEvent();
-        // This only invokes when Event.bindEvents() finds no triggers,
-        // Replace this with the only part of handleEvent that was applicable in this case.
-        // if (Invite.showInvite()) Event.config.callback();
       }
     },
 
@@ -288,15 +284,8 @@ define('event', ['./invite', './ouibounce', './params', './touch-scroll', './uti
       }
     },
 
-    // so much here was managing the params and
-    // other things to pass along to you-know-where
-    // remove things here that don't directly affect events
     renderConfetti: function (trigger, cookieToKill) {
     if (Params.confetti) Util.removeCookie(cookieToKill, Params.domain);
-    // if (trigger) {
-    //     Params.touchpointURL = Invite.buildURLParams(Params.touchpointURL, {trigger: trigger});
-    //     Params.confettiUrl = Invite.buildURLParams(Params.confettiUrl, {trigger: trigger});
-    // }
     clearInterval(Event.monitor);
     Event.triggersLoaded = {};
     Event.config.callback();
